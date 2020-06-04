@@ -82,11 +82,6 @@ public class MainFrame extends javax.swing.JFrame {
         jTextField_Search.setMaximumSize(new java.awt.Dimension(432, 40));
         jTextField_Search.setMinimumSize(new java.awt.Dimension(432, 40));
         jTextField_Search.setPreferredSize(new java.awt.Dimension(432, 40));
-        jTextField_Search.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_SearchActionPerformed(evt);
-            }
-        });
         jPanel1.add(jTextField_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 432, 40));
 
         jLabel24.setBackground(new java.awt.Color(237, 238, 242));
@@ -99,6 +94,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel24.setMaximumSize(new java.awt.Dimension(115, 40));
         jLabel24.setMinimumSize(new java.awt.Dimension(115, 40));
         jLabel24.setPreferredSize(new java.awt.Dimension(115, 40));
+        jLabel24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel24MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 110, 40));
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -291,9 +291,11 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_SearchActionPerformed
+    private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_SearchActionPerformed
+        System.out.println("Đang tìm kiếm. Vui lòng đợi...");
+        jTextField_Search.setText("");
+    }//GEN-LAST:event_jLabel24MouseClicked
 
     /**
      * @param args the command line arguments
@@ -311,15 +313,11 @@ public class MainFrame extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
         //</editor-fold>
 
         /* Create and display the form */
