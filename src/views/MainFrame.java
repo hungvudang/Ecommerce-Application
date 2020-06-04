@@ -29,6 +29,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         headerBar = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jTextField_Search = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -55,6 +61,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         banner = new javax.swing.JScrollPane();
+        jLabel_bannerDemo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1349, 737));
@@ -68,17 +75,64 @@ public class MainFrame extends javax.swing.JFrame {
         headerBar.setLayout(new java.awt.GridLayout(2, 0));
 
         jPanel1.setBackground(new java.awt.Color(24, 158, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1349, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 95, Short.MAX_VALUE)
-        );
+        jTextField_Search.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jTextField_Search.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 238, 242)));
+        jTextField_Search.setMaximumSize(new java.awt.Dimension(432, 40));
+        jTextField_Search.setMinimumSize(new java.awt.Dimension(432, 40));
+        jTextField_Search.setPreferredSize(new java.awt.Dimension(432, 40));
+        jTextField_Search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_SearchActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField_Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 432, 40));
+
+        jLabel24.setBackground(new java.awt.Color(237, 238, 242));
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icon7.png"))); // NOI18N
+        jLabel24.setText("Tìm kiếm");
+        jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 238, 242)));
+        jLabel24.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel24.setMaximumSize(new java.awt.Dimension(115, 40));
+        jLabel24.setMinimumSize(new java.awt.Dimension(115, 40));
+        jLabel24.setPreferredSize(new java.awt.Dimension(115, 40));
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 110, 40));
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icon11.png"))); // NOI18N
+        jLabel25.setText("<html>Giỏ hàng</html>");
+        jLabel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(237, 238, 242), 2));
+        jLabel25.setMaximumSize(new java.awt.Dimension(40, 40));
+        jLabel25.setMinimumSize(new java.awt.Dimension(40, 40));
+        jLabel25.setPreferredSize(new java.awt.Dimension(40, 40));
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 50, 100, 40));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icon8.png"))); // NOI18N
+        jLabel26.setText("<html>Theo dõi đơn hàng</html>");
+        jLabel26.setMaximumSize(new java.awt.Dimension(40, 40));
+        jLabel26.setMinimumSize(new java.awt.Dimension(40, 40));
+        jLabel26.setPreferredSize(new java.awt.Dimension(40, 40));
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 50, 90, 40));
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icon9.png"))); // NOI18N
+        jLabel27.setText("<html>Thông báo của tôi</html>");
+        jLabel27.setMaximumSize(new java.awt.Dimension(40, 40));
+        jLabel27.setMinimumSize(new java.awt.Dimension(40, 40));
+        jLabel27.setPreferredSize(new java.awt.Dimension(40, 40));
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 50, 100, 40));
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icon10.png"))); // NOI18N
+        jLabel28.setText("<html>Đăng nhập Tài khoản</html>");
+        jLabel28.setMaximumSize(new java.awt.Dimension(40, 40));
+        jLabel28.setMinimumSize(new java.awt.Dimension(40, 40));
+        jLabel28.setPreferredSize(new java.awt.Dimension(40, 40));
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 50, 100, 40));
 
         headerBar.add(jPanel1);
 
@@ -92,7 +146,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel18.setMaximumSize(new java.awt.Dimension(174, 30));
         jLabel18.setMinimumSize(new java.awt.Dimension(174, 30));
         jLabel18.setPreferredSize(new java.awt.Dimension(174, 30));
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 174, 30));
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 174, 30));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icon1.png"))); // NOI18N
@@ -100,7 +154,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel17.setMaximumSize(new java.awt.Dimension(213, 30));
         jLabel17.setMinimumSize(new java.awt.Dimension(213, 30));
         jLabel17.setPreferredSize(new java.awt.Dimension(213, 40));
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 210, 30));
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 210, 30));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icon5.png"))); // NOI18N
@@ -108,7 +162,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel19.setMaximumSize(new java.awt.Dimension(104, 30));
         jLabel19.setMinimumSize(new java.awt.Dimension(104, 30));
         jLabel19.setPreferredSize(new java.awt.Dimension(104, 30));
-        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 50, 110, 40));
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 40, 110, 40));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icon6.png"))); // NOI18N
@@ -116,7 +170,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel20.setMaximumSize(new java.awt.Dimension(104, 30));
         jLabel20.setMinimumSize(new java.awt.Dimension(104, 30));
         jLabel20.setPreferredSize(new java.awt.Dimension(104, 30));
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 140, 30));
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 140, 30));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icon2.png"))); // NOI18N
@@ -124,7 +178,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel21.setMaximumSize(new java.awt.Dimension(104, 30));
         jLabel21.setMinimumSize(new java.awt.Dimension(104, 30));
         jLabel21.setPreferredSize(new java.awt.Dimension(104, 30));
-        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 190, 40));
+        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 190, 40));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icon3.png"))); // NOI18N
@@ -132,7 +186,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel22.setMaximumSize(new java.awt.Dimension(104, 30));
         jLabel22.setMinimumSize(new java.awt.Dimension(104, 30));
         jLabel22.setPreferredSize(new java.awt.Dimension(104, 30));
-        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 50, 150, 40));
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 40, 150, 40));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icon4.png"))); // NOI18N
@@ -140,7 +194,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel23.setMaximumSize(new java.awt.Dimension(104, 30));
         jLabel23.setMinimumSize(new java.awt.Dimension(104, 30));
         jLabel23.setPreferredSize(new java.awt.Dimension(104, 30));
-        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 50, 110, 40));
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 40, 110, 40));
 
         headerBar.add(jPanel2);
 
@@ -217,11 +271,29 @@ public class MainFrame extends javax.swing.JFrame {
 
         getContentPane().add(menuBar, java.awt.BorderLayout.LINE_START);
 
+        banner.setBackground(new java.awt.Color(255, 255, 255));
+        banner.setBorder(null);
         banner.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        banner.setMaximumSize(new java.awt.Dimension(1013, 543));
+        banner.setMinimumSize(new java.awt.Dimension(1013, 543));
+
+        jLabel_bannerDemo.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel_bannerDemo.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel_bannerDemo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/banner/bannerDemo.png"))); // NOI18N
+        jLabel_bannerDemo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel_bannerDemo.setMaximumSize(new java.awt.Dimension(1013, 543));
+        jLabel_bannerDemo.setMinimumSize(new java.awt.Dimension(1013, 543));
+        jLabel_bannerDemo.setPreferredSize(new java.awt.Dimension(1013, 543));
+        banner.setViewportView(jLabel_bannerDemo);
+
         getContentPane().add(banner, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField_SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_SearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_SearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,6 +347,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -282,8 +359,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel_bannerDemo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextField_Search;
     private javax.swing.JPanel menuBar;
     // End of variables declaration//GEN-END:variables
 }
