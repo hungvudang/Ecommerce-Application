@@ -33,4 +33,8 @@ public class Constants {
 
     // Form text field width
     public static int FORM_TEXT_FIELD_WIDTH = 10;
+
+    // Product item size
+    public static int PROD_ITEM_WIDTH = 200;
+    public static int PROD_ITEM_HEIGHT = 200;
 }

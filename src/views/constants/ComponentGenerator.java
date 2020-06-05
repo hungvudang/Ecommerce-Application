@@ -107,7 +107,7 @@ public class ComponentGenerator {
      * @return label contain image
      */
     public JLabel createImage(String imagePath, int width, int height) {
-        JLabel label = new JLabel(new ImageIcon(imagePath));
+        JLabel label = new JLabel(new ImageIcon(getClass().getResource(imagePath)));
         label.setSize(width, height);
         return label;
     }
