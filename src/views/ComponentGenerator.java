@@ -11,7 +11,7 @@ import javax.swing.JTextField;
  */
 
 public class ComponentGenerator {
-    private ComponentGenerator componentGenerator;
+    private static ComponentGenerator componentGenerator;
 
     private ComponentGenerator() {
 
@@ -22,7 +22,7 @@ public class ComponentGenerator {
      * 
      * @return componentGenerator
      */
-    public ComponentGenerator getCompomentGenerator() {
+    public static ComponentGenerator getCompomentGenerator() {
         if (componentGenerator == null) {
             componentGenerator = new ComponentGenerator();
         }
