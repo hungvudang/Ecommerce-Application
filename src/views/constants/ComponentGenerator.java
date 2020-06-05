@@ -1,8 +1,11 @@
-package views;
+package views.constants;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
@@ -44,6 +47,15 @@ public class ComponentGenerator {
     }
 
     /**
+     * Create new panel
+     * 
+     * @return panel
+     */
+    public JPanel createPanel() {
+        return new JPanel();
+    }
+
+    /**
      * Create new text field
      * 
      * @param textFieldWidth
@@ -51,6 +63,16 @@ public class ComponentGenerator {
      */
     public JTextField createTextField(int textFieldWidth) {
         return new JTextField(textFieldWidth);
+    }
+
+    /**
+     * Create new password field
+     * 
+     * @param passwordFieldWidth
+     * @return password field
+     */
+    public JPasswordField createPasswordField(int passwordFieldWidth) {
+        return new JPasswordField(passwordFieldWidth);
     }
 
     /**
@@ -101,6 +123,27 @@ public class ComponentGenerator {
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setSize(width, height);
         return scrollPane;
+    }
+
+    /**
+     * Create new button with given text
+     * 
+     * @param text
+     * @return button
+     */
+    public JButton createButton(String text) {
+        return new JButton(text);
+    }
+
+    /**
+     * Create new button with given text & icon
+     * 
+     * @param text
+     * @param iconPath
+     * @return button with icon
+     */
+    public JButton createButton(String text, String iconPath) {
+        return new JButton(text, new ImageIcon(iconPath));
     }
 
 }
