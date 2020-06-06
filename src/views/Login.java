@@ -8,13 +8,14 @@ import views.constants.Constants;
 
 /**
  * Login
- * 
+ *
  * @author Ngoc
  */
 public class Login extends JFrame {
-
+    
     private ComponentGenerator componentGenerator = ComponentGenerator.getCompomentGenerator();
-
+    
+   @SuppressWarnings("unchecked")
     public Login() {
         initComponents();
         setSize(Constants.F_WIDTH, Constants.F_HEIGHT);
@@ -41,8 +42,8 @@ public class Login extends JFrame {
         // Add main panel to frame
         getContentPane().add(mainPanel);
     }
-
+    
     public static void main(String args[]) {
-        new Login();
+        new Login().setVisible(true);
     }
 }
