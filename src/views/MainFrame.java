@@ -134,6 +134,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel28.setMaximumSize(new java.awt.Dimension(40, 40));
         jLabel28.setMinimumSize(new java.awt.Dimension(40, 40));
         jLabel28.setPreferredSize(new java.awt.Dimension(40, 40));
+        jLabel28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel28MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 50, 100, 40));
 
         headerBar.add(jPanel1);
@@ -293,6 +298,13 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Hiện thị LoginForm2
+    private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
+        // TODO add your handling code here:
+        dispose();
+        new LoginForm2().setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_jLabel28MouseClicked
+
     private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel24MouseClicked
         // TODO add your handling code here:
         System.out.println("Đang tìm kiếm. Vui lòng đợi...");
@@ -302,29 +314,29 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info
-                    : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException
-                | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE,
-                    null, ex);
-        }
-//</editor-fold>
-
-//</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new MainFrame().setVisible(true);
-        });
-    }
+//    public static void main(String args[]) {
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info
+//                    : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException | InstantiationException
+//                | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE,
+//                    null, ex);
+//        }
+////</editor-fold>
+//
+////</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(() -> {
+//            new MainFrame().setVisible(true);
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane banner;

@@ -43,7 +43,7 @@ public class Login extends JFrame {
         getContentPane().add(mainPanel);
     }
     
-    public static void main(String args[]) {
-        new Login().setVisible(true);
-    }
+//    public static void main(String args[]) {
+//        new Login().setVisible(true);
+//    }
 }

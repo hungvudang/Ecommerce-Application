@@ -33,8 +33,8 @@ public class ProductList extends JFrame {
         getContentPane().add(mainPanel);
     }
 
-    public static void main(String[] args) {
-        new ProductList();
-    }
+//    public static void main(String[] args) {
+//        new ProductList();
+//    }
 
 }
