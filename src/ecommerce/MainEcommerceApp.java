@@ -1,5 +1,7 @@
+package ecommerce;
 
-import views.MainFrame;
+
+import ecommerce.views.MainFrame;
 
 
 /*

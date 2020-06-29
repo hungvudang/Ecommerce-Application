@@ -4,7 +4,9 @@ Properties.
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
  */
-package views;
+package ecommerce.views;
+
+import ecommerce.views.LoginForm;
 
 /**
  *
@@ -66,9 +68,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel_bannerDemo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1349, 737));
         setMinimumSize(new java.awt.Dimension(1349, 737));
-        setPreferredSize(new java.awt.Dimension(1349, 737));
         setResizable(false);
         setSize(new java.awt.Dimension(1349, 737));
 
@@ -298,11 +298,11 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    // Hiện thị LoginForm2
+    // Hiện thị LoginForm
     private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
         // TODO add your handling code here:
         dispose();
-        new LoginForm2().setVisible(rootPaneCheckingEnabled);
+        new LoginForm().setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_jLabel28MouseClicked
 
     private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel24MouseClicked

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package views;
+package ecommerce.views;
 
 import java.util.Calendar;
 
@@ -11,12 +11,12 @@ import java.util.Calendar;
  *
  * @author hungv
  */
-public class LoginForm2 extends javax.swing.JFrame {
+public class LoginForm extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginForm2
      */
-    public LoginForm2() {
+    public LoginForm() {
         initComponents();
         initDateOfBirth();
     }
@@ -77,7 +77,6 @@ public class LoginForm2 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setBounds(new java.awt.Rectangle(225, 50, 0, 0));
-        setMaximumSize(new java.awt.Dimension(900, 630));
         setMinimumSize(new java.awt.Dimension(900, 630));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -572,7 +571,7 @@ public class LoginForm2 extends javax.swing.JFrame {
 ////                }
 ////            }
 ////        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-////            java.util.logging.Logger.getLogger(LoginForm2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+////            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 ////        }
 //        //</editor-fold>
 //        
@@ -580,7 +579,7 @@ public class LoginForm2 extends javax.swing.JFrame {
 //
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(() -> {
-//            new LoginForm2().setVisible(true);
+//            new LoginForm().setVisible(true);
 //        });
 //    }
 
