@@ -5,7 +5,13 @@
  */
 package ecommerce.views;
 
+import ecommerce.DAO.UserDAO;
+import ecommerce.controllers.LoginController;
+import ecommerce.controllers.UserController;
+import ecommerce.models.User;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -151,6 +157,14 @@ public class LoginForm extends javax.swing.JFrame {
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField1.setText("Nhập email hoặc số điện thoại");
         jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField1FocusLost(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -160,6 +174,14 @@ public class LoginForm extends javax.swing.JFrame {
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField2.setText("Mật khẩu từ 6 đến 32 ký tự");
         jTextField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField2FocusLost(evt);
+            }
+        });
 
         jLabel6.setText("Quên mật khẩu? Ấn vào đây");
 
@@ -227,6 +249,11 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Đăng nhập");
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -311,6 +338,14 @@ public class LoginForm extends javax.swing.JFrame {
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField3.setText("Nhập họ tên");
         jTextField3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField3FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField3FocusLost(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -320,6 +355,14 @@ public class LoginForm extends javax.swing.JFrame {
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField4.setText("Nhập số điện thoại");
         jTextField4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField4FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField4FocusLost(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -329,6 +372,14 @@ public class LoginForm extends javax.swing.JFrame {
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField5.setText("Nhập email");
         jTextField5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField5FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField5FocusLost(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -338,6 +389,14 @@ public class LoginForm extends javax.swing.JFrame {
         jTextField6.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField6.setText("Nhập mật khẩu từ 6 đến 32 ký tự");
         jTextField6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        jTextField6.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField6FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField6FocusLost(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -346,10 +405,20 @@ public class LoginForm extends javax.swing.JFrame {
         jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jRadioButton1.setText("Nam");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
 
         jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jRadioButton2.setText("Nữ");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -539,9 +608,98 @@ public class LoginForm extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
         dispose();
-        new MainFrame().setVisible(true);
+        MainFrame.getInstance().setVisible(true);
     }//GEN-LAST:event_formWindowClosing
+
+    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
+        if (jTextField1.getText().equals("Nhập email hoặc số điện thoại"))
+            jTextField1.setText("");
+    }//GEN-LAST:event_jTextField1FocusGained
+
+    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+        if (jTextField1.getText().equals(""))
+            jTextField1.setText("Nhập email hoặc số điện thoại");
+    }//GEN-LAST:event_jTextField1FocusLost
+
+    private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
+        if (jTextField2.getText().equals("Mật khẩu từ 6 đến 32 ký tự"))
+            jTextField2.setText("");
+    }//GEN-LAST:event_jTextField2FocusGained
+
+    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
+        if (jTextField2.getText().equals(""))
+            jTextField2.setText("Mật khẩu từ 6 đến 32 ký tự");
+    }//GEN-LAST:event_jTextField2FocusLost
+
+    private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusGained
+        if (jTextField3.getText().equals("Nhập họ tên"))
+            jTextField3.setText("");
+    }//GEN-LAST:event_jTextField3FocusGained
+
+    private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
+        if (jTextField3.getText().equals(""))
+            jTextField3.setText("Nhập họ tên");
+    }//GEN-LAST:event_jTextField3FocusLost
+
+    private void jTextField4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusGained
+        if (jTextField4.getText().equals("Nhập số điện thoại"))
+            jTextField4.setText("");
+    }//GEN-LAST:event_jTextField4FocusGained
+
+    private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
+        if (jTextField4.getText().equals(""))
+            jTextField4.setText("Nhập số điện thoại");
+    }//GEN-LAST:event_jTextField4FocusLost
+
+    private void jTextField5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusGained
+        if (jTextField5.getText().equals("Nhập email"))
+            jTextField5.setText("");
+    }//GEN-LAST:event_jTextField5FocusGained
+
+    private void jTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusLost
+        if (jTextField5.getText().equals(""))
+            jTextField5.setText("Nhập email");
+    }//GEN-LAST:event_jTextField5FocusLost
+
+    private void jTextField6FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusGained
+        if (jTextField6.getText().equals("Nhập mật khẩu từ 6 đến 32 ký tự"))
+            jTextField6.setText("");
+    }//GEN-LAST:event_jTextField6FocusGained
+
+    private void jTextField6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusLost
+        if (jTextField6.getText().equals(""))
+            jTextField6.setText("Nhập mật khẩu từ 6 đến 32 ký tự");
+    }//GEN-LAST:event_jTextField6FocusLost
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        if (jRadioButton2.isSelected())
+            jRadioButton2.setSelected(false);
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        if (jRadioButton1.isSelected())
+            jRadioButton1.setSelected(false);
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        // Kiểm tra thông tin đăng nhập
+        String email = jTextField1.getText();
+        String password = jTextField2.getText();
+        try {
+            LoginController.validInfoLoginAccount(email, password);
+            User user = UserController.getUser(email);
+            
+            if (user != null && UserController.isAdmin(user)){
+                dispose();
+                new AdminForm().setVisible(rootPaneCheckingEnabled);
+            }
+        } catch (Exception ex) {
+            //Thông báo lỗi khi thông tin đăng nhập không đúng định dạng
+            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jLabel14MouseClicked
     
+   
     // Khởi tạo giá trị cho combobox chọn ngày sinh trong form Tạo tài khoản
     private void initDateOfBirth(){
         int year = Calendar.getInstance().get(Calendar.YEAR);

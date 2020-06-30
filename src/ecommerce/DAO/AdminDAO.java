@@ -5,10 +5,35 @@
  */
 package ecommerce.DAO;
 
+import ecommerce.models.Admin;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author hungv
  */
 public class AdminDAO {
+    public DatabaseConnection dbConnector;
     
+    public AdminDAO(){
+        try {
+            dbConnector = DatabaseConnection.getInstance();
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public boolean updateAdmin(Admin admin){
+        return false;
+    }
+    
+    public boolean insertAdmin(Admin admin){
+        return false;
+    }
+    
+    public boolean deleteAdmin(Admin admin){
+        return false;
+    }
 }

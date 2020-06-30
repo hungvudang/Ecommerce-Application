@@ -6,19 +6,19 @@ Properties.
  */
 package ecommerce.views;
 
-import ecommerce.views.LoginForm;
-
 /**
  *
  * @author hungv
  */
 public class MainFrame extends javax.swing.JFrame {
-
+    
+    private static MainFrame instance = null;
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        instance = this;
     }
 
     /**
@@ -301,10 +301,13 @@ public class MainFrame extends javax.swing.JFrame {
     // Hiện thị LoginForm
     private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
         // TODO add your handling code here:
-        dispose();
+        setVisible(false);
         new LoginForm().setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_jLabel28MouseClicked
 
+    public static MainFrame getInstance(){
+        return instance;
+    }
     private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel24MouseClicked
         // TODO add your handling code here:
         System.out.println("Đang tìm kiếm. Vui lòng đợi...");

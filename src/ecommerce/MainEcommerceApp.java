@@ -1,7 +1,6 @@
 package ecommerce;
-
-
 import ecommerce.views.MainFrame;
+
 
 
 /*
@@ -16,7 +15,6 @@ import ecommerce.views.MainFrame;
  */
 public class MainEcommerceApp {
      public static void main(String[] args) {
-         
          setLockAndFeel();
          new MainFrame().setVisible(true);
      }
