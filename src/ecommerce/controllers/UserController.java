@@ -56,7 +56,6 @@ public class UserController {
     
     public static ArrayList<User> getAllUsers(){
         UserDAO uDao = new UserDAO();
-        
         Connection conn = uDao.dbConnector.getConnection();
         
         ArrayList<User> alUsers = new ArrayList<>();
@@ -109,5 +108,28 @@ public class UserController {
         }
         
         return "";
+    }
+    
+    public static ArrayList<String> getAllAddress(){
+        ArrayList<String> address = new ArrayList<>();
+        
+        UserDAO uDao = new UserDAO();
+        Connection conn = uDao.dbConnector.getConnection();
+        String sqlq = "select address_name from tbl_address where address_id != 0";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sqlq);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                address.add(rs.getString("address_name"));
+            }
+            return address;
+        } catch (SQLException ex) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return address;
+    }
+    
+    public static void updateUser(User user){
+        new UserDAO().updateUserDAO(user);
     }
 }
