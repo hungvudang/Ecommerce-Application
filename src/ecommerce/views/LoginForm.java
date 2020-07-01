@@ -5,7 +5,6 @@
  */
 package ecommerce.views;
 
-import ecommerce.DAO.UserDAO;
 import ecommerce.controllers.LoginController;
 import ecommerce.controllers.UserController;
 import ecommerce.models.User;
@@ -687,11 +686,20 @@ public class LoginForm extends javax.swing.JFrame {
         String password = jTextField2.getText();
         try {
             LoginController.validInfoLoginAccount(email, password);
-            User user = UserController.getUser(email);
+            User user = UserController.getUser(email, password);
             
-            if (user != null && UserController.isAdmin(user)){
-                dispose();
-                new AdminForm().setVisible(rootPaneCheckingEnabled);
+            if (user != null ){
+                if (UserController.isAdmin(user)){
+                    dispose();
+                    new AdminForm().setVisible(rootPaneCheckingEnabled);
+                } else {
+                    dispose();
+                    MainFrame.getInstance().setNameUser(user.getUser_fullName());
+                    MainFrame.getInstance().setVisible(true);
+                    System.out.println("Bạn đã đăng nhập bằng tài khoản người dùng");
+                }
+            } else {
+                System.out.println("Tài khoản không tồn tại. Bạn có muốn đăng ký tài khoản không !");
             }
         } catch (Exception ex) {
             //Thông báo lỗi khi thông tin đăng nhập không đúng định dạng
@@ -711,35 +719,6 @@ public class LoginForm extends javax.swing.JFrame {
         }
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(dateOfBirth));
     }
-    
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-////        try {
-////            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-////                if ("Nimbus".equals(info.getName())) {
-////                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-////                    break;
-////                }
-////            }
-////        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-////            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-////        }
-//        //</editor-fold>
-//        
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(() -> {
-//            new LoginForm().setVisible(true);
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;

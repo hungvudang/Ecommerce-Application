@@ -132,6 +132,7 @@ public class AdminForm extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         dispose();
+//        new LoginForm().setVisible(true);
         MainFrame.getInstance().setVisible(true);
     }//GEN-LAST:event_formWindowClosing
 

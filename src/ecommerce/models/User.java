@@ -5,7 +5,7 @@
  */
 package ecommerce.models;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -21,7 +21,7 @@ public class User {
             user_password,
             user_phone;
     private boolean user_gender;
-    private Date user_dateOfBirth;
+    private LocalDate user_dateOfBirth;
 
     public User() {
     }
@@ -34,6 +34,11 @@ public class User {
         return user_id;
     }
 
+    public void setAddress_id(Long address_id) {
+        this.address_id = address_id;
+    }
+
+    
     public Long getAddress_id() {
         return address_id;
     }
@@ -78,11 +83,11 @@ public class User {
         this.user_gender = user_gender;
     }
 
-    public Date getUser_dateOfBirth() {
+    public LocalDate getUser_dateOfBirth() {
         return user_dateOfBirth;
     }
 
-    public void setUser_dateOfBirth(Date user_dateOfBirth) {
+    public void setUser_dateOfBirth(LocalDate user_dateOfBirth) {
         this.user_dateOfBirth = user_dateOfBirth;
     }
     
