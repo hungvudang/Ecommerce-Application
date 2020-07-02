@@ -413,6 +413,7 @@ public class UserManagementForm extends javax.swing.JFrame {
         jComboBox3.setSelectedIndex(currentYear - year);
     }//GEN-LAST:event_jTable1MouseClicked
     
+    // Cập nhật thông tin user
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
        try {
            int indexRowSelect = jTable1.getSelectedRow();
@@ -440,6 +441,7 @@ public class UserManagementForm extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_jLabel10MouseClicked
 
+    // Xóa tài khoản user
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
        try {
            int indexRowSelect = jTable1.getSelectedRow();
@@ -458,6 +460,7 @@ public class UserManagementForm extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_jLabel11MouseClicked
 
+    // Thêm user mới
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
        try {
            long address_id = (long)jComboBox4.getSelectedIndex()+1;
