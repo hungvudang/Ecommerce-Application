@@ -9,8 +9,10 @@ import ecommerce.controllers.CategoryCotroller;
 import ecommerce.controllers.ProductController;
 import ecommerce.models.Product;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -97,16 +99,31 @@ public class ProductManagementForm extends javax.swing.JFrame {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icons8-update-48.png"))); // NOI18N
         jLabel10.setText("Cập Nhật");
         jLabel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icons8-delete-bin-48.png"))); // NOI18N
         jLabel11.setText("Xóa");
         jLabel11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icons8-new-product-64.png"))); // NOI18N
         jLabel12.setText("Thêm");
         jLabel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
 
         jComboBox4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -279,6 +296,73 @@ public class ProductManagementForm extends javax.swing.JFrame {
         System.out.println(indexRowSelect);
         
     }//GEN-LAST:event_jTable1MouseClicked
+    
+    // Cập nhật sản phẩm
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        try {
+            int indexRowSelect = jTable1.getSelectedRow();
+            
+            if (indexRowSelect == -1)
+                throw new Exception("Chưa chọn sản phẩm cần cập nhật !");
+            
+            long product_id = Long.parseLong(model.getValueAt(indexRowSelect, 0).toString());
+            long category_id = jComboBox4.getSelectedIndex() + 1;
+            String product_name = jTextField1.getText();
+            float product_price = Float.parseFloat(jTextField4.getText());
+            String product_description = jTextPane1.getText();
+            
+            
+            ProductController.updateProduct(product_id, category_id, product_name, product_price, product_description);
+            dispose();
+            new ProductManagementForm().setVisible(true);
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Cập nhật sản phẩm thất bại", "Cập nhật", 0);
+            Logger.getLogger(ProductManagementForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_jLabel10MouseClicked
+
+    // Xóa sản phẩm
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        int indexRowSelect = jTable1.getSelectedRow();
+        try {
+            if (indexRowSelect == -1)
+                throw new Exception("Chưa chọn sản phẩm cần xóa !");
+            
+            long product_id = Long.parseLong(model.getValueAt(indexRowSelect, 0).toString());
+            ProductController.deleteProduct(product_id);
+            
+            dispose();
+            new ProductManagementForm().setVisible(true);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Xóa sản phẩm thất bại", "Xóa", 0);
+            Logger.getLogger(ProductManagementForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jLabel11MouseClicked
+    
+    //Thêm sản phẩm mới
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        long category_id = jComboBox4.getSelectedIndex()+1;
+        try {
+            String product_name = jTextField1.getText();
+            float product_price = Float.parseFloat(jTextField4.getText());
+            String product_description = jTextPane1.getText();
+            
+            if (category_id == -1 ||product_name.equals(""))
+                throw new Exception("Thêm sản phẩm mới thất bại. Kiểm tra lại các trường thông tin !");
+            
+            ProductController.insertProduct(category_id, product_name, product_price, product_description);
+            
+            dispose();
+            new ProductManagementForm().setVisible(true);
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Thêm sản phẩm mới thất bại", "Thêm", 0);
+            Logger.getLogger(ProductManagementForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jLabel12MouseClicked
 
     private void initCategoryName(){
         ArrayList<String> listCategoryName = CategoryCotroller.getAllCategoryName();
