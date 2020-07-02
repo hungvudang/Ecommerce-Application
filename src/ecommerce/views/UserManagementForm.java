@@ -8,11 +8,15 @@ package ecommerce.views;
 import ecommerce.controllers.AdminController;
 import ecommerce.controllers.UserController;
 import ecommerce.models.User;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -175,11 +179,21 @@ public class UserManagementForm extends javax.swing.JFrame {
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icons8-denied-48.png"))); // NOI18N
         jLabel11.setText("Xóa");
         jLabel11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icons8-add-user-male-48.png"))); // NOI18N
         jLabel12.setText("Thêm");
         jLabel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
 
         jComboBox4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -366,7 +380,6 @@ public class UserManagementForm extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int indexRowSelect = jTable1.getSelectedRow();
-        long user_id = Long.parseLong( model.getValueAt(indexRowSelect, 0).toString());
         String address = (String) model.getValueAt(indexRowSelect, 1);
         String fullname = (String) model.getValueAt(indexRowSelect, 2);
         String email = (String) model.getValueAt(indexRowSelect, 3);
@@ -401,22 +414,72 @@ public class UserManagementForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
     
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-       int indexRowSelect = jTable1.getSelectedRow();
-       long user_id = Long.parseLong( model.getValueAt(indexRowSelect, 0).toString());
-       long address_id = (long)jComboBox4.getSelectedIndex()+1;
-       String user_fullname = jTextField1.getText();
-       String user_email = jTextField4.getText();
-       String user_phone = jTextField3.getText();
-       
-       boolean user_gender = jRadioButton1.isSelected();
-       LocalDate user_dateOfBirth = LocalDate.of(Integer.parseInt((String)jComboBox3.getSelectedItem()),Month.of(jComboBox2.getSelectedIndex()+1), jComboBox1.getSelectedIndex()+1);
-       
-       User user =  AdminController.getAccountInfo(user_id,address_id,user_fullname,  user_email,  user_phone,  user_gender, user_dateOfBirth);
-       UserController.updateUser(user);
-       
-       dispose();
-       new UserManagementForm().setVisible(true);
+       try {
+           int indexRowSelect = jTable1.getSelectedRow();
+           long user_id = Long.parseLong( model.getValueAt(indexRowSelect, 0).toString());
+           long address_id = (long)jComboBox4.getSelectedIndex()+1;
+           String user_fullname = jTextField1.getText();
+           String user_email = jTextField4.getText();
+           String user_phone = jTextField3.getText();
+           
+           boolean user_gender = jRadioButton1.isSelected();
+           LocalDate user_dateOfBirth = LocalDate.of(Integer.parseInt((String)jComboBox3.getSelectedItem()),Month.of(jComboBox2.getSelectedIndex()+1), jComboBox1.getSelectedIndex()+1);
+           
+           User user =  AdminController.getAccountInfo(user_id,address_id,user_fullname,  user_email,  user_phone,  user_gender, user_dateOfBirth);
+           
+           UserController.updateUser(user);
+           
+           dispose();
+           new UserManagementForm().setVisible(true);
+       } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Cập nhật thông tin user thất bại !", "Cập nhật", 0);
+           Logger.getLogger(UserManagementForm.class.getName()).log(Level.SEVERE, null, ex);
+       } catch (Exception ex){
+           JOptionPane.showMessageDialog(null, "Cập nhật thông tin user thất bại !", "Cập nhật", 0);
+           Logger.getLogger(UserManagementForm.class.getName()).log(Level.SEVERE, null, ex);
+       }
     }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+       try {
+           int indexRowSelect = jTable1.getSelectedRow();
+           long user_id = Long.parseLong( model.getValueAt(indexRowSelect, 0).toString());
+           
+           UserController.deleteUser(user_id);
+           
+           dispose();
+           new UserManagementForm().setVisible(true);
+       } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Xóa tài khoản user thất bại !", "Xóa", 0);
+           Logger.getLogger(UserManagementForm.class.getName()).log(Level.SEVERE, null, ex);
+       } catch (Exception ex){
+           JOptionPane.showMessageDialog(null, "Xóa tài khoản user thất bại !", "Xóa", 0);
+           Logger.getLogger(UserManagementForm.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+       try {
+           long address_id = (long)jComboBox4.getSelectedIndex()+1;
+           String user_fullname = jTextField1.getText();
+           String user_email = jTextField4.getText();
+           String user_phone = jTextField3.getText();
+           boolean user_gender = jRadioButton1.isSelected();
+           LocalDate user_dateOfBirth = LocalDate.of(Integer.parseInt((String)jComboBox3.getSelectedItem()),Month.of(jComboBox2.getSelectedIndex()+1), jComboBox1.getSelectedIndex()+1);
+           String user_password = JOptionPane.showInputDialog("Mật khẩu:");
+           
+           // Kiếm tra thông tin admin nhập vào
+           UserController.validInfoNewUser(address_id, user_fullname, user_email, user_phone, user_gender, user_dateOfBirth);
+           
+           UserController.insertUser(address_id, user_fullname, user_password, user_email, user_phone, user_gender, user_dateOfBirth);
+           dispose();
+           new UserManagementForm().setVisible(true);
+
+       } catch (Exception ex) {
+           JOptionPane.showMessageDialog(null, "Thêm user mới thất bại. Kiểm tra lại các trường thông tin !", "Thêm", 0);
+           Logger.getLogger(UserManagementForm.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jLabel12MouseClicked
 
     
     private void initJTable(){

@@ -681,6 +681,9 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+//        dispose();
+//        new AdminForm().setVisible(true);
+        
         // Kiểm tra thông tin đăng nhập
         String email = jTextField1.getText();
         String password = jTextField2.getText();

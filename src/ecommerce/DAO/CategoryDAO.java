@@ -5,7 +5,7 @@
  */
 package ecommerce.DAO;
 
-import ecommerce.models.Product;
+import ecommerce.models.Category;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,27 +14,27 @@ import java.util.logging.Logger;
  *
  * @author hungv
  */
-public class ProductDAO {
+public class CategoryDAO {
     public DatabaseConnection dbConnector;
     
-    public ProductDAO(){
+    public CategoryDAO(){
         try {
             dbConnector = DatabaseConnection.getInstance();
         } catch (SQLException ex) {
-            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     
+    public void updateCategory(Category c){
     
-    public void updateProduct(Product p){
     }
     
-    public void insertProduct(Product p){
+    public void insertCategory(Category c){
         
     }
     
-    public void deleteProduct(Product p){
+    public void deleteCategory(Category c){
         
     }
 }
