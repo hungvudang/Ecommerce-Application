@@ -5,6 +5,8 @@
  */
 package ecommerce.models;
 
+import ecommerce.DAO.UserDAO;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 /**
@@ -91,5 +93,15 @@ public class User {
         this.user_dateOfBirth = user_dateOfBirth;
     }
     
+    public static void updateUser(User user) throws SQLException{
+        new UserDAO().updateUserDAO(user);
+    }
     
+    public static void deleteUser(long user_id) throws SQLException{
+        new UserDAO().deleteUserDAO(user_id);
+    }
+    
+    public static void insertUser(long address_id, String user_fullname, String user_password, String user_email, String user_phone, boolean user_gender, LocalDate user_dateOfBirth) throws SQLException{
+        new UserDAO().insertUserDAO(address_id, user_fullname, user_password, user_email, user_phone, user_gender, user_dateOfBirth);
+    }
 }

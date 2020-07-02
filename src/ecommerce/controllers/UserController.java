@@ -129,22 +129,22 @@ public class UserController {
         return address;
     }
     
-    public static void updateUser(User user) throws SQLException{
-        new UserDAO().updateUserDAO(user);
-    }
-    
-    public static void deleteUser(long user_id) throws SQLException{
-        new UserDAO().deleteUserDAO(user_id);
-    }
-    
-    public static void insertUser(long address_id, String user_fullname, String user_password, String user_email, String user_phone, boolean user_gender, LocalDate user_dateOfBirth) throws SQLException{
-        new UserDAO().insertUserDAO(address_id, user_fullname, user_password, user_email, user_phone, user_gender, user_dateOfBirth);
-    }
-    
     public static void validInfoNewUser(long address_id, String user_fullname, String user_email, String user_phone, boolean user_gender, LocalDate date) throws Exception{
         if (address_id == 0 || user_fullname.equals("") || user_email.equals("") || user_phone.equals("")){
             throw new Exception("Không được để trống các trường thông tin !");
         }
+    }
+    
+    public static void updateUserCtrl(User user) throws SQLException{
+        User.updateUser(user);
+    }
+    
+    public static void deleteUserCtrl(long user_id) throws SQLException{
+        User.deleteUser(user_id);
+    }
+    
+    public static void insertUserCtrl(long address_id, String user_fullname, String user_password, String user_email, String user_phone, boolean user_gender, LocalDate user_dateOfBirth) throws SQLException{
+        User.insertUser(address_id, user_fullname, user_password, user_email, user_phone, user_gender, user_dateOfBirth);
     }
 }
 

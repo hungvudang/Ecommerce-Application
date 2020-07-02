@@ -5,6 +5,9 @@
  */
 package ecommerce.models;
 
+import ecommerce.DAO.ProductDAO;
+import java.sql.SQLException;
+
 /**
  *
  * @author hungv
@@ -81,6 +84,16 @@ public class Product {
         this.product_price = product_price;
     }
     
+    public static void updateProduct(long product_id, long category_id, String product_name, float product_price, String product_description) throws SQLException{
+        new ProductDAO().updateProductDAO(product_id, category_id, product_name, product_price, product_description);
+    }
     
+    public static void deleteProduct(long product_id) throws SQLException{
+        new ProductDAO().deleteProductDAO(product_id);
+    }
+    
+    public static void insertProduct(long category_id, String product_name, float product_price, String product_description) throws SQLException{
+        new ProductDAO().insertProductDAO(category_id, product_name, product_price, product_description);
+    }
     
 }

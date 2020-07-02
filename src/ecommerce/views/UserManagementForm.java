@@ -422,39 +422,37 @@ public class UserManagementForm extends javax.swing.JFrame {
            String user_fullname = jTextField1.getText();
            String user_email = jTextField4.getText();
            String user_phone = jTextField3.getText();
-           
+           if (user_fullname.equals("") || user_email.equals(""))
+               throw new Exception("Cập nhật thông tin user thất bại !");
            boolean user_gender = jRadioButton1.isSelected();
            LocalDate user_dateOfBirth = LocalDate.of(Integer.parseInt((String)jComboBox3.getSelectedItem()),Month.of(jComboBox2.getSelectedIndex()+1), jComboBox1.getSelectedIndex()+1);
            
            User user =  AdminController.getAccountInfo(user_id,address_id,user_fullname,  user_email,  user_phone,  user_gender, user_dateOfBirth);
-           
-           UserController.updateUser(user);
+           UserController.updateUserCtrl(user);
            
            dispose();
            new UserManagementForm().setVisible(true);
-       } catch (SQLException ex) {
+           
+        } catch (Exception ex) {
            JOptionPane.showMessageDialog(null, "Cập nhật thông tin user thất bại !", "Cập nhật", 0);
            Logger.getLogger(UserManagementForm.class.getName()).log(Level.SEVERE, null, ex);
-       } catch (Exception ex){
-           JOptionPane.showMessageDialog(null, "Cập nhật thông tin user thất bại !", "Cập nhật", 0);
-           Logger.getLogger(UserManagementForm.class.getName()).log(Level.SEVERE, null, ex);
-       }
+        }
     }//GEN-LAST:event_jLabel10MouseClicked
 
     // Xóa tài khoản user
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
        try {
            int indexRowSelect = jTable1.getSelectedRow();
+           if (indexRowSelect == -1)
+               throw new Exception("Xóa tài khoản user thất bại !");
            long user_id = Long.parseLong( model.getValueAt(indexRowSelect, 0).toString());
            
-           UserController.deleteUser(user_id);
+           UserController.deleteUserCtrl(user_id);
            
            dispose();
            new UserManagementForm().setVisible(true);
-       } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null, "Xóa tài khoản user thất bại !", "Xóa", 0);
-           Logger.getLogger(UserManagementForm.class.getName()).log(Level.SEVERE, null, ex);
-       } catch (Exception ex){
+           
+       } catch (Exception ex) {
            JOptionPane.showMessageDialog(null, "Xóa tài khoản user thất bại !", "Xóa", 0);
            Logger.getLogger(UserManagementForm.class.getName()).log(Level.SEVERE, null, ex);
        }
@@ -474,7 +472,7 @@ public class UserManagementForm extends javax.swing.JFrame {
            // Kiếm tra thông tin admin nhập vào
            UserController.validInfoNewUser(address_id, user_fullname, user_email, user_phone, user_gender, user_dateOfBirth);
            
-           UserController.insertUser(address_id, user_fullname, user_password, user_email, user_phone, user_gender, user_dateOfBirth);
+           UserController.insertUserCtrl(address_id, user_fullname, user_password, user_email, user_phone, user_gender, user_dateOfBirth);
            dispose();
            new UserManagementForm().setVisible(true);
 
