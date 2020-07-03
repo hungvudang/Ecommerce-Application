@@ -8,7 +8,6 @@ package ecommerce.views;
 import ecommerce.controllers.AdminController;
 import ecommerce.controllers.UserController;
 import ecommerce.models.User;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;

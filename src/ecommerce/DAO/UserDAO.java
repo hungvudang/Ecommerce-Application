@@ -76,14 +76,15 @@ public class UserDAO {
         System.out.println("Thêm tài khoản user thành công !");
     }
 
-public void deleteUserDAO(long user_id) throws SQLException{
-        String sqlq = "DELETE FROM tbl_user WHERE user_id = ?";
-        
-        Connection conn = dbConnector.getConnection();
-        PreparedStatement ps = conn.prepareStatement(sqlq);
-        ps.setLong(1,user_id);
-        ps.execute();
-        System.out.println("Xóa tài khoản user thành công !");
-        
+    public void deleteUserDAO(long user_id) throws SQLException{
+            String sqlq = "DELETE FROM tbl_user WHERE user_id = ?";
+
+            Connection conn = dbConnector.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sqlq);
+            ps.setLong(1,user_id);
+            ps.execute();
+            System.out.println("Xóa tài khoản user thành công !");
+
     }
+    
 }
