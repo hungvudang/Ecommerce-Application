@@ -49,4 +49,16 @@ public class ProductController {
         
         return products;
     }
+    
+    public static void updateProductCtrl(long product_id, long category_id, String product_name, float product_price, String product_description) throws SQLException{
+        Product.updateProduct(product_id, category_id, product_name, product_price, product_description);
+    }
+    
+    public static void deleteProductCtrl(long product_id) throws SQLException{
+        Product.deleteProduct(product_id);
+    }
+    
+    public static void insertProductCtrl(long category_id, String product_name, float product_price, String product_description) throws SQLException{
+        Product.insertProduct(category_id, product_name, product_price, product_description);
+    }
 }

@@ -312,7 +312,7 @@ public class ProductManagementForm extends javax.swing.JFrame {
             String product_description = jTextPane1.getText();
             
             
-            Product.updateProduct(product_id, category_id, product_name, product_price, product_description);
+            ProductController.updateProductCtrl(product_id, category_id, product_name, product_price, product_description);
             dispose();
             new ProductManagementForm().setVisible(true);
             
@@ -332,7 +332,7 @@ public class ProductManagementForm extends javax.swing.JFrame {
                 throw new Exception("Chưa chọn sản phẩm cần xóa !");
             
             long product_id = Long.parseLong(model.getValueAt(indexRowSelect, 0).toString());
-            Product.deleteProduct(product_id);
+            ProductController.deleteProductCtrl(product_id);
             
             dispose();
             new ProductManagementForm().setVisible(true);
@@ -353,7 +353,7 @@ public class ProductManagementForm extends javax.swing.JFrame {
             if (category_id == -1 ||product_name.equals(""))
                 throw new Exception("Thêm sản phẩm mới thất bại. Kiểm tra lại các trường thông tin !");
             
-            Product.insertProduct(category_id, product_name, product_price, product_description);
+            ProductController.insertProductCtrl(category_id, product_name, product_price, product_description);
             
             dispose();
             new ProductManagementForm().setVisible(true);
