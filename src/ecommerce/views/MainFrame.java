@@ -6,6 +6,11 @@ Properties.
  */
 package ecommerce.views;
 
+import ecommerce.controllers.CategoryCotroller;
+import ecommerce.models.Category;
+import java.util.ArrayList;
+import javax.swing.JLabel;
+
 /**
  *
  * @author hungv
@@ -18,7 +23,9 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        initMenuBar(CategoryCotroller.getAllCategory());
         instance = this;
+        
     }
 
     /**
@@ -316,6 +323,26 @@ public class MainFrame extends javax.swing.JFrame {
 
     public void setNameUser(String username){
         jLabel28.setText("<html>"+username+"</html>");
+    }
+    
+    private void initMenuBar(ArrayList<Category> categories){
+        menuBar.removeAll();
+        for (Category category : categories){
+            JLabel lbl_category = new JLabel();
+            lbl_category.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            lbl_category.setText(category.getCategory_name());
+            menuBar.add(lbl_category);
+        }
+    }
+    
+    public static void setMenuBar(ArrayList<Category> categories){
+        MainFrame.getInstance().menuBar.removeAll();
+        for (Category category : categories){
+            JLabel lbl_category = new JLabel();
+            lbl_category.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            lbl_category.setText(category.getCategory_name());
+            MainFrame.getInstance().menuBar.add(lbl_category);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

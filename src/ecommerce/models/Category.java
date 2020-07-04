@@ -5,6 +5,9 @@
  */
 package ecommerce.models;
 
+import ecommerce.DAO.CategoryDAO;
+import java.sql.SQLException;
+
 /**
  *
  * @author hungv
@@ -14,6 +17,11 @@ public class Category {
     private String category_name;
 
     public Category() {
+    }
+
+    public Category(Long category_id, String category_name) {
+        this.category_id = category_id;
+        this.category_name = category_name;
     }
 
     public Category(Long category_id) {
@@ -32,5 +40,18 @@ public class Category {
         this.category_name = category_name;
     }
     
+    public static void updateCategory(long category_id, String category_name) throws SQLException{
+      new CategoryDAO().updateCategoryDAO(category_id, category_name);
+    }
+    
+    public static void insertCategory(String category_name) throws SQLException{
+        new CategoryDAO().insertCategoryDAO(category_name);
+        
+    }
+    
+    public static void deleteCategory(long category_id) throws SQLException{
+        new CategoryDAO().deleteCategoryDAO(category_id);
+        
+    }
     
 }
