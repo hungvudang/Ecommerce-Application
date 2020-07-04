@@ -18,12 +18,14 @@ import javax.swing.JLabel;
 public class MainFrame extends javax.swing.JFrame {
     
     private static MainFrame instance = null;
+    private boolean LOGINED;
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
         initMenuBar(CategoryCotroller.getAllCategory());
+        LOGINED = false;
         instance = this;
         
     }
@@ -54,25 +56,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        panelBar = new javax.swing.JScrollPane();
         menuBar = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         banner = new javax.swing.JScrollPane();
-        jLabel_bannerDemo = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1349, 737));
@@ -137,7 +125,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icon/icon10.png"))); // NOI18N
-        jLabel28.setText("<html>Đăng nhập Tài khoản</html>");
+        jLabel28.setText("<html>Đăng nhập<br>Tài khoản</html>");
         jLabel28.setMaximumSize(new java.awt.Dimension(40, 40));
         jLabel28.setMinimumSize(new java.awt.Dimension(40, 40));
         jLabel28.setPreferredSize(new java.awt.Dimension(40, 40));
@@ -146,7 +134,7 @@ public class MainFrame extends javax.swing.JFrame {
                 jLabel28MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 50, 100, 40));
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 50, 150, 40));
 
         headerBar.add(jPanel1);
 
@@ -214,91 +202,39 @@ public class MainFrame extends javax.swing.JFrame {
 
         getContentPane().add(headerBar, java.awt.BorderLayout.PAGE_START);
 
-        menuBar.setMaximumSize(new java.awt.Dimension(244, 543));
-        menuBar.setMinimumSize(new java.awt.Dimension(244, 543));
-        menuBar.setPreferredSize(new java.awt.Dimension(244, 543));
-        menuBar.setLayout(new java.awt.GridLayout(16, 0));
+        panelBar.setBackground(new java.awt.Color(255, 255, 255));
+        panelBar.setBorder(null);
+        panelBar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        panelBar.setMaximumSize(new java.awt.Dimension(260, 543));
+        panelBar.setMinimumSize(new java.awt.Dimension(260, 543));
+        panelBar.setPreferredSize(new java.awt.Dimension(260, 543));
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Điện Thoại - Máy Tính Bảng");
-        menuBar.add(jLabel1);
+        menuBar.setBackground(new java.awt.Color(255, 255, 255));
+        menuBar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        menuBar.setLayout(new java.awt.GridLayout(0, 1));
+        panelBar.setViewportView(menuBar);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Điện Tử - Điện Lạnh");
-        menuBar.add(jLabel2);
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Phụ Kiện - Thiết Bị Số");
-        menuBar.add(jLabel3);
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Laptop - Thiết bị IT");
-        menuBar.add(jLabel4);
-
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Máy Ảnh - Quay Phim");
-        menuBar.add(jLabel5);
-
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Điện Gia Dụng");
-        menuBar.add(jLabel6);
-
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Nhà Cửa Đời Sống");
-        menuBar.add(jLabel7);
-
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Hàng Tiêu Dùng - Thực Phẩm");
-        menuBar.add(jLabel8);
-
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Đồ chơi, Mẹ & Bé");
-        menuBar.add(jLabel9);
-
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Làm Đẹp - Sức Khỏe");
-        menuBar.add(jLabel10);
-
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Thời trang - Phụ kiện");
-        menuBar.add(jLabel11);
-
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Thời trang - Phụ kiện");
-        menuBar.add(jLabel12);
-
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Thể Thao - Dã Ngoại");
-        menuBar.add(jLabel13);
-
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("Xe Máy, Ô tô, Xe Đạp");
-        menuBar.add(jLabel14);
-
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("Hàng quốc tế");
-        menuBar.add(jLabel15);
-
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("Voucher - Dịch Vụ - Thẻ Cào");
-        menuBar.add(jLabel16);
-
-        getContentPane().add(menuBar, java.awt.BorderLayout.LINE_START);
+        getContentPane().add(panelBar, java.awt.BorderLayout.LINE_START);
 
         banner.setBackground(new java.awt.Color(255, 255, 255));
         banner.setBorder(null);
-        banner.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        banner.setMaximumSize(new java.awt.Dimension(1013, 543));
-        banner.setMinimumSize(new java.awt.Dimension(1013, 543));
+        banner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        banner.setMaximumSize(new java.awt.Dimension(997, 543));
+        banner.setMinimumSize(new java.awt.Dimension(997, 543));
+        banner.setPreferredSize(new java.awt.Dimension(997, 543));
 
-        jLabel_bannerDemo.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel_bannerDemo.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel_bannerDemo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/banner/bannerDemo.png"))); // NOI18N
-        jLabel_bannerDemo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel_bannerDemo.setMaximumSize(new java.awt.Dimension(1013, 543));
-        jLabel_bannerDemo.setMinimumSize(new java.awt.Dimension(1013, 543));
-        jLabel_bannerDemo.setPreferredSize(new java.awt.Dimension(1013, 543));
-        banner.setViewportView(jLabel_bannerDemo);
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel3.setMaximumSize(new java.awt.Dimension(997, 543));
+        jPanel3.setMinimumSize(new java.awt.Dimension(997, 543));
+        jPanel3.setPreferredSize(new java.awt.Dimension(997, 543));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/banner/bannerDemo.png"))); // NOI18N
+        jPanel3.add(jLabel1);
+
+        banner.setViewportView(jPanel3);
 
         getContentPane().add(banner, java.awt.BorderLayout.CENTER);
 
@@ -307,9 +243,14 @@ public class MainFrame extends javax.swing.JFrame {
 
     // Hiện thị LoginForm
     private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
-        // TODO add your handling code here:
-        setVisible(false);
-        new LoginForm().setVisible(rootPaneCheckingEnabled);
+        if (!LOGINED){
+            LOGINED = true;
+            dispose();
+            new LoginForm().setVisible(true);
+        } else {
+            dispose();
+            new MainFrame().setVisible(true);
+        }
     }//GEN-LAST:event_jLabel28MouseClicked
 
     public static MainFrame getInstance(){
@@ -322,15 +263,17 @@ public class MainFrame extends javax.swing.JFrame {
     }// GEN-LAST:event_jLabel24MouseClicked
 
     public void setNameUser(String username){
-        jLabel28.setText("<html>"+username+"</html>");
+        jLabel28.setText("<html>"+username+"<br>Đăng xuất</html>");
     }
     
     private void initMenuBar(ArrayList<Category> categories){
         menuBar.removeAll();
         for (Category category : categories){
             JLabel lbl_category = new JLabel();
-            lbl_category.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            lbl_category.setText(category.getCategory_name());
+//            lbl_category.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            lbl_category.setFont(new java.awt.Font("Tahoma", 0, 15));
+//            lbl_category.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+            lbl_category.setText(" "+category.getCategory_name());
             menuBar.add(lbl_category);
         }
     }
@@ -339,27 +282,24 @@ public class MainFrame extends javax.swing.JFrame {
         MainFrame.getInstance().menuBar.removeAll();
         for (Category category : categories){
             JLabel lbl_category = new JLabel();
-            lbl_category.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            lbl_category.setText(category.getCategory_name());
+//            lbl_category.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            lbl_category.setFont(new java.awt.Font("Tahoma", 0, 15));
+//            lbl_category.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+            lbl_category.setText(" "+category.getCategory_name());
             MainFrame.getInstance().menuBar.add(lbl_category);
         }
+    }
+    public void setLoginState(boolean loginState){
+        this.LOGINED = loginState;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane banner;
     private javax.swing.JPanel headerBar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -369,17 +309,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabel_bannerDemo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTextField_Search;
     private javax.swing.JPanel menuBar;
+    private javax.swing.JScrollPane panelBar;
     // End of variables declaration//GEN-END:variables
 }

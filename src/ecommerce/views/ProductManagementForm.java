@@ -382,7 +382,7 @@ public class ProductManagementForm extends javax.swing.JFrame {
             for (Product p : products){
                 model.addRow(new Object[]{
                     p.getProduct_id(),
-                    jComboBox4.getItemAt(p.getCategory_id().intValue()-1),
+                    CategoryCotroller.getCategoryName(p.getCategory_id()),
                     p.getProduct_name(),
                     String.format("%.1f", p.getProduct_price()),
                     p.getProduct_description()

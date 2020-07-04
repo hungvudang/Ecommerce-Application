@@ -259,7 +259,7 @@ public class CategorylManagementForm extends javax.swing.JFrame {
 //        try {
 //            if (indexRowSelect == -1)
 //                throw new Exception("Chưa chọn danh mục cần xóa !");
-//            long category_id = Long.parseLong((String) model.getValueAt(indexRowSelect, 0));
+//            long category_id = Long.parseLong(model.getValueAt(indexRowSelect, 0).toString());
 //            
 //            CategoryCotroller.deleteCategoryCtrl(category_id);
 //            

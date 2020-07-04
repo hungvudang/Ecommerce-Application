@@ -610,8 +610,8 @@ public class LoginForm extends javax.swing.JFrame {
     
 // Nếu người dùng close LoginForm thì sẽ hiện thị lại MainFrame
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        // TODO add your handling code here:
         dispose();
+        MainFrame.getInstance().setLoginState(false);
         MainFrame.getInstance().setVisible(true);
     }//GEN-LAST:event_formWindowClosing
 

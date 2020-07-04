@@ -38,6 +38,25 @@ public class CategoryCotroller {
         return lstCategoryName;
     }
     
+    public static String getCategoryName(long category_id){
+        CategoryDAO cDAO = new CategoryDAO();
+        Connection conn = cDAO.dbConnector.getConnection();
+        
+        String sqlq = "SELECT category_name FROM tbl_category WHERE category_id = ?";
+        String category_name = null;
+        try {
+            PreparedStatement ps = conn.prepareStatement(sqlq);
+            ps.setLong(1,category_id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                category_name = rs.getString("category_name"); 
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoryCotroller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return category_name;
+    }
+    
     public static ArrayList<Category> getAllCategory(){
         ArrayList<Category> categories = new ArrayList<>();
         
