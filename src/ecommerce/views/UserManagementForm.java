@@ -377,6 +377,7 @@ public class UserManagementForm extends javax.swing.JFrame {
             jRadioButton1.setSelected(false);
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
+    // Hiện thị thông tin user khi admin lựa chọn từ tabel
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int indexRowSelect = jTable1.getSelectedRow();
         String address = (String) model.getValueAt(indexRowSelect, 1);
@@ -466,12 +467,15 @@ public class UserManagementForm extends javax.swing.JFrame {
            String user_phone = jTextField3.getText();
            boolean user_gender = jRadioButton1.isSelected();
            LocalDate user_dateOfBirth = LocalDate.of(Integer.parseInt((String)jComboBox3.getSelectedItem()),Month.of(jComboBox2.getSelectedIndex()+1), jComboBox1.getSelectedIndex()+1);
+           
+           // Yêu cầu nhập mật khẩu
            String user_password = JOptionPane.showInputDialog("Mật khẩu:");
            
            // Kiếm tra thông tin admin nhập vào
            UserController.validInfoNewUser(address_id, user_fullname, user_email, user_phone, user_gender, user_dateOfBirth);
-           
+           // Yêu cầu thêm user
            UserController.insertUserCtrl(address_id, user_fullname, user_password, user_email, user_phone, user_gender, user_dateOfBirth);
+           
            dispose();
            new UserManagementForm().setVisible(true);
 

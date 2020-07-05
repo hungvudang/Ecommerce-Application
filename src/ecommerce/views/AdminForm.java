@@ -153,21 +153,26 @@ public class AdminForm extends javax.swing.JFrame {
         MainFrame.getInstance().setVisible(true);
     }//GEN-LAST:event_formWindowClosing
 
+    // Click button User Management
+    // Đóng form admin, và mở form User Management
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         dispose();
         new UserManagementForm().setVisible(true);
     }//GEN-LAST:event_jLabel4MouseClicked
-
+    
+    // Click button Product Management
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         dispose();
         new ProductManagementForm().setVisible(true);
     }//GEN-LAST:event_jLabel1MouseClicked
 
+    // Click button BillManagement
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         dispose();
         new BillManagementForm().setVisible(true);
     }//GEN-LAST:event_jLabel5MouseClicked
 
+    // Click button Category Management
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         dispose();
         new CategorylManagementForm().setVisible(true);
