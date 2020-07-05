@@ -254,6 +254,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel28MouseClicked
 
     public static MainFrame getInstance(){
+        
         return instance;
     }
     private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel24MouseClicked
